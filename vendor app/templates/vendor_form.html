@@ -1,0 +1,38 @@
+<!-- vendor_management_project/vendor_app/templates/vendor_app/vendor_form.html 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Update Vendor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>{% if vendor_id %}Update{% else %}Create{% endif %} Vendor</h2>
+        <form method="post" action="{% if vendor_id %}{% url 'update_vendor' vendor_id=vendor_id %}{% else %}{% url 'create_vendor' %}{% endif %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ vendor.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_details">Contact Details</label>
+                <textarea class="form-control" id="contact_details" name="contact_details" required>{{ vendor.contact_details }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address" required>{{ vendor.address }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="vendor_code">Vendor Code</label>
+                <input type="text" class="form-control" id="vendor_code" name="vendor_code" value="{{ vendor.vendor_code }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">{% if vendor_id %}Update{% else %}Create{% endif %} Vendor</button>
+            <a href="{% url 'list_vendors' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

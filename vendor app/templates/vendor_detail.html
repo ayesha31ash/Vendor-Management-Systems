@@ -1,0 +1,34 @@
+<!-- vendor_management_project/vendor_app/templates/vendor_app/vendor_detail.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Vendor Details</h2>
+        <dl class="row">
+            <dt class="col-sm-3">Vendor ID</dt>
+            <dd class="col-sm-9">{{ vendor.vendor_id }}</dd>
+
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">{{ vendor.name }}</dd>
+
+            <dt class="col-sm-3">Contact Details</dt>
+            <dd class="col-sm-9">{{ vendor.contact_details }}</dd>
+
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">{{ vendor.address }}</dd>
+
+            <dt class="col-sm-3">Vendor Code</dt>
+            <dd class="col-sm-9">{{ vendor.vendor_code }}</dd>
+        </dl>
+        <a href="{% url 'list_vendors' %}" class="btn btn-secondary">Back to Vendor List</a>
+    </div>
+</body>
+</html>
